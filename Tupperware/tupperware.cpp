@@ -11,29 +11,47 @@ private:
   std::vector<std::string> m_toppings;
 };
 
-class PizzaContainer {
+class FriedRice {
 public:
-  PizzaContainer(const Slice s) : m_s(s) {}
-  bool contentsEdible() {
-    return m_s.isFresh();
-  }
+  FriedRice(bool is_veggie) : m_is_veggie(is_veggie) {}
+
+  bool isFresh() const { return false; }
 
 private:
-  Slice m_s;
+  bool m_is_veggie;
 };
 
-bool eat_whats_inside(const PizzaContainer &t) { return true; }
+class PizzaTupperware {
+public:
+  PizzaTupperware(const Slice food) : m_food(food) {}
+  bool contentsEdible() { return m_food.isFresh(); }
+
+private:
+  Slice m_food;
+};
+
+class ChineseTupperware {
+public:
+  ChineseTupperware(const FriedRice food) : m_food(food) {}
+bool m_is_veggie;
+  bool contentsEdible() { return m_food.isFresh(); }
+
+private:
+  FriedRice m_food;
+};
+
+bool eat_whats_inside(const PizzaTupperware &t) { return true; }
 
 int main() {
 
-    Slice s{{"Pineapple", "Cheese", "Cheese", "More Cheese"}};
+  Slice s{{"Pineapple", "Cheese", "Cheese", "More Cheese"}};
 
-    PizzaContainer tupperware{s};
+  PizzaTupperware tupperware{s};
 
-    if (tupperware.contentsEdible()) {
-        std::cout << "The contents are edible ... yum.\n";
-    } else {
-        std::cout << "The contents are not edible ... blah.\n";
-    }
-    return 0;
+  if (tupperware.contentsEdible()) {
+    std::cout << "The contents are edible ... yum.\n";
+  } else {
+    std::cout << "The contents are not edible ... blah.\n";
+  }
+  return 0;
 }
