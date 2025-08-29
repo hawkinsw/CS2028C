@@ -40,13 +40,24 @@ private:
   FriedRice m_food;
 };
 
-bool eat_whats_inside(const PizzaTupperware &t) { return true; }
+template <typename ContentsType>
+class Tupperware {
+public:
+  Tupperware(const ContentsType food) : m_food(food) {}
+  bool contentsEdible() { return m_food.isFresh(); }
+
+private:
+  ContentsType m_food;
+};
+
+template <typename T>
+bool eat_whats_inside(const T &t) { return true; }
 
 int main() {
 
   Slice s{{"Pineapple", "Cheese", "Cheese", "More Cheese"}};
 
-  PizzaTupperware tupperware{s};
+  Tupperware<Slice> tupperware{s};
 
   if (tupperware.contentsEdible()) {
     std::cout << "The contents are edible ... yum.\n";
