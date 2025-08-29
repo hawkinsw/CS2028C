@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/hawkinsw/code/uc/CS2028C/Tupperware/build",
+  "command": "/usr/bin/c++    -o CMakeFiles/tupperware.dir/tupperware.cpp.o -c /home/hawkinsw/code/uc/CS2028C/Tupperware/tupperware.cpp",
+  "file": "/home/hawkinsw/code/uc/CS2028C/Tupperware/tupperware.cpp",
+  "output": "CMakeFiles/tupperware.dir/tupperware.cpp.o"
+}
+]
