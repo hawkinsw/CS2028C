@@ -4,7 +4,7 @@ class Medicine {
     public:
         Medicine(std::string name): m_name{name} {}
 
-        void dispense() {
+        virtual void dispense() {
             std::cout << "Dispensing a generic medicine named " << m_name << ".\n";
         }
 
@@ -38,14 +38,15 @@ bool safety_check() {
 
 
 // In its current version, dispense method that is executed in this
-// function will _always_ be the one from the base class. Why?
+// function will _always_ be the one from the _actual_ class of the
+// object given as an argument for med.
 // Enabling _dynamic dispatch_ (which is a requirement of _run-time
 // _polymorphism_) requires
 // 1. That the member function be virtual _and_
 // 2. That the object on which the member function is invoked by either
 //    a reference or a pointer.
-// Neither of those is the case here.
-void give_medicine(std::string patient_name, Medicine med) {
+// Both of those is the case here.
+void give_medicine(std::string patient_name, Medicine &med) {
     if (safety_check()) {
         med.dispense();
     }
