@@ -1,3 +1,0 @@
-/home/hawkinsw/code/uc/CS2028C/Tupperware/build/CMakeFiles/tupperware.dir
-/home/hawkinsw/code/uc/CS2028C/Tupperware/build/CMakeFiles/edit_cache.dir
-/home/hawkinsw/code/uc/CS2028C/Tupperware/build/CMakeFiles/rebuild_cache.dir
