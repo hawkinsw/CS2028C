@@ -62,6 +62,19 @@ int main() {
         iterator = iterator->next;
     }
 
+    // Now, let's walk the list and free the linked list.
+    iterator = head;
+    while (iterator) {
+
+        // We will need to hold on to the "current" node ...
+        auto temp = iterator;
+        // ... so that we can move to the next node before ...
+        iterator = iterator->next;
+        // ... deleting it. If we waited until "after" deleting
+        // the node in order to find the next one, we would be
+        // using memory after freeing it -- a bad thing!
+        delete temp;
+    }
 
     return 0;
 }
