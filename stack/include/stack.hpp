@@ -76,7 +76,13 @@ class Stack {
       throw invalid_peek_error("No element on the stack to peek.");
     }
 
-    return m_data[m_size];
+    return m_data[m_size-1];
+  }
+
+  ~Stack() {
+    delete[] m_data;
+    m_capacity = 0;
+    m_size = 0;
   }
 
  private:

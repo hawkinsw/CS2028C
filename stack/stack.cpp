@@ -22,14 +22,19 @@ int main() {
 	st.push(11);
 	st.push(12);
 
+	assert(12 == st.peek());
 	assert(12 == st.pop());
+	assert(11 == st.peek());
 	assert(11 == st.pop());
+	assert(10 == st.peek());
 	assert(10 == st.pop());
+	assert(9 == st.peek());
 	assert(9 == st.pop());
+	assert(8 == st.peek());
 	assert(8 == st.pop());
 
 	// This should cause an exception!
-	assert(8 == st.pop());
+	//assert(8 == st.pop());
 
 	return 0;
 }
